@@ -1,11 +1,11 @@
 class Notas {
-  final int id;
+  final int? id;
   final String titulo;
   final String descricao;
 
   Notas({
     this.id,
-    this.titulo,
-    this.descricao,
+    required this.titulo,
+    required this.descricao,
   });
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meu_primeiro_app/database/dao/notas_dao.dart';
-
-import 'package:meu_primeiro_app/models/notas.dart';
 import 'package:meu_primeiro_app/components/card_nota.dart';
+import 'package:meu_primeiro_app/database/dao/notas_dao.dart';
+import 'package:meu_primeiro_app/models/notas.dart';
 import 'package:meu_primeiro_app/screens/criador_notas.dart';
 
 const _tituloAppBar = 'Notas';
@@ -25,34 +24,31 @@ class ListaNotasState extends State<ListaNotas> {
   Widget _tela() {
     return Scaffold(
         backgroundColor: Colors.grey,
-        appBar: _appBar(),
+        appBar: AppBar(
+          title: Text(_tituloAppBar),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: () => setState(() {}),
+            )
+          ],
+        ),
         floatingActionButton: _floatbutton(),
         body: FutureBuilder<List<Notas>>(
             future: _dao.findAll(),
             initialData: [],
             builder:
-                (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
-              final List<Notas> _notas = snapshot.data;
+                (BuildContext context, AsyncSnapshot<List<Notas>> snapshot) {
+              final List<Notas>? _notas = snapshot.data;
+
               return ListView.builder(
-                itemCount: _notas.length,
+                itemCount: _notas?.length ?? 0,
                 itemBuilder: (contex, index) {
-                  final Notas _nota = _notas[index];
+                  final Notas _nota = _notas![index];
                   return CardNota(_nota);
                 },
               );
             }));
-  }
-
-  Widget _appBar() {
-    return AppBar(
-      title: Text(_tituloAppBar),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.refresh),
-          onPressed: () => setState(() {}),
-        )
-      ],
-    );
   }
 
   Widget _floatbutton() {

@@ -10,6 +10,7 @@ class CardNota extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     NotasDao _dao = NotasDao();
+
     return Card(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -24,7 +25,7 @@ class CardNota extends StatelessWidget {
             width: 150,
             height: 30,
             child: TextButton(
-              onPressed: () => _dao.delet(_nota.id),
+              onPressed: () => _dao.delet(_nota.id ?? 0),
               child: Text('Delete'),
             ),
           ),

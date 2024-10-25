@@ -22,7 +22,9 @@ class CriadorNotas extends StatelessWidget {
   Widget _tela(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey,
-        appBar: _appBar(),
+        appBar: AppBar(
+          title: Text(_tituloAppBar),
+        ),
         body: SingleChildScrollView(
             child: Column(
           children: [
@@ -36,20 +38,12 @@ class CriadorNotas extends StatelessWidget {
               _dicaTotalCapitulos,
               _controladorCampodescricao,
             ),
-            RaisedButton(
-              child: Text('Confirmar'),
+            ElevatedButton(
               onPressed: () => _criaNota(context),
-              color: Colors.teal[300],
-              textColor: Colors.black,
-            )
+              child: Text('Confirmar'),
+            ),
           ],
         )));
-  }
-
-  Widget _appBar() {
-    return AppBar(
-      title: Text(_tituloAppBar),
-    );
   }
 
   void _criaNota(BuildContext context) {

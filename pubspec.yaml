@@ -1,26 +1,24 @@
 name: meu_primeiro_app
 description: My first App.
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  sqflite:
-  path:
-  path_provider:
 
-  cupertino_icons: ^1.0.0
+  sqflite: ^2.4.0
+  path: ^1.9.0
+  path_provider: ^2.1.4
+
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
-
