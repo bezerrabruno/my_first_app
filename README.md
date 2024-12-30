@@ -1,4 +1,4 @@
-# Meu Primeiro App
+# My First App
 
 **v1.0.0+1 (atualizado em: 29/12/2024)**
 
